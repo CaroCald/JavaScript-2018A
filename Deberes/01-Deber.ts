@@ -7,14 +7,14 @@ El nombre de la función será "validarNumeroDeStringsEnArreglo".
 El nombre del parámetro de la función será "arreglo".
 La función va a devolver un resultado que será el número total de "strings" que se encuentren en el arreglo.
  */
-let arrayString: string[];
+
 class validarNumerdDeStringsEnArreglo{
     public arregloDeStrings:string[];
    constructor(arrayString:string[]){
        this.arregloDeStrings=arrayString;
    }
     public imprimirEnConsola(){
-       console.log(`la long del arreglo es ${this.arregloDeStrings.length}`)
+       console.log(`la longitud del arreglo ${this.arregloDeStrings} es ${this.arregloDeStrings.length}`)
     }
 }
 let arregloPrueba: validarNumerdDeStringsEnArreglo = new validarNumerdDeStringsEnArreglo(['A', 'B', 'C', 'D']);
