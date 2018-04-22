@@ -16,18 +16,40 @@ Es decir, en el ejemplo anterior el formato imprimiría lo siguiente para los ge
 
 let numeroDeWatts = 0;
 let numeroGeneradores = 0;
-while (numeroGeneradores <= 19) {
-    numeroGeneradores++;
-    if (numeroGeneradores <= 4) {
-        numeroDeWatts = numeroDeWatts + 62;
-        console.log(`El Generador ${numeroGeneradores} está prendido, añadiendo 62 megawatts para un total de ${numeroDeWatts}`);
+let estado;
+
+
+class activarTodosLosGeneradores {
+    public imprimirGeneradores(numeroTotalGeneradores, estadoPares, estadoImpares) {
+        while (numeroGeneradores <= numeroTotalGeneradores) {
+            numeroGeneradores++;
+            if (numeroGeneradores <= 4 && (numeroGeneradores%2)==0) {
+                numeroDeWatts = numeroDeWatts + 62;
+                estado=estadoPares;
+                console.log(`El Generador ${numeroGeneradores} está ${estado}, añadiendo 62 megawatts para un total de ${numeroDeWatts}`)
+            }
+            else if(numeroGeneradores <= 4 && (numeroGeneradores%2)!=0)
+            {
+                numeroDeWatts = numeroDeWatts + 62;
+                estado=estadoImpares;
+                console.log(`El Generador ${numeroGeneradores} está ${estado}, añadiendo 62 megawatts para un total de ${numeroDeWatts}`)
+            }
+        }
+        for (numeroGeneradores = 5; numeroGeneradores <= numeroTotalGeneradores; numeroGeneradores++) {
+            numeroDeWatts = numeroDeWatts + 124;
+            if ((numeroGeneradores%2)==0) {
+                estado=estadoPares;
+                console.log(`El Generador ${numeroGeneradores} está ${estado}, añadiendo 124 megawatts para un total de ${numeroDeWatts}`);
+            }
+            else{
+                estado=estadoImpares;
+                console.log(`El Generador ${numeroGeneradores} está ${estado}, añadiendo 124 megawatts para un total de ${numeroDeWatts}`);
+            }
+
+
+        }
     }
-}
-
-for (numeroGeneradores = 5; numeroGeneradores <= 19; numeroGeneradores++) {
-    numeroDeWatts = numeroDeWatts + 124;
-    console.log(`El Generador ${numeroGeneradores} está prendido, añadiendo 124 megawatts para un total de ${numeroDeWatts}`);
 
 }
-
-
+let generadores: activarTodosLosGeneradores = new activarTodosLosGeneradores();
+generadores.imprimirGeneradores(19,'Encendido','Apagado');

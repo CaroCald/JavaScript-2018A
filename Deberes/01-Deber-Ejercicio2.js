@@ -15,14 +15,37 @@ Es decir, en el ejemplo anterior el formato imprimiría lo siguiente para los ge
 */
 var numeroDeWatts = 0;
 var numeroGeneradores = 0;
-while (numeroGeneradores <= 19) {
-    numeroGeneradores++;
-    if (numeroGeneradores <= 4) {
-        numeroDeWatts = numeroDeWatts + 62;
-        console.log("El Generador " + numeroGeneradores + " est\u00E1 prendido, a\u00F1adiendo 62 megawatts para un total de " + numeroDeWatts);
+var estado;
+var activarTodosLosGeneradores = /** @class */ (function () {
+    function activarTodosLosGeneradores() {
     }
-}
-for (numeroGeneradores = 5; numeroGeneradores <= 19; numeroGeneradores++) {
-    numeroDeWatts = numeroDeWatts + 124;
-    console.log("El Generador " + numeroGeneradores + " est\u00E1 prendido, a\u00F1adiendo 124 megawatts para un total de " + numeroDeWatts);
-}
+    activarTodosLosGeneradores.prototype.imprimirGeneradores = function (numeroTotalGeneradores, estadoPares, estadoImpares) {
+        while (numeroGeneradores <= numeroTotalGeneradores) {
+            numeroGeneradores++;
+            if (numeroGeneradores <= 4 && (numeroGeneradores % 2) == 0) {
+                numeroDeWatts = numeroDeWatts + 62;
+                estado = estadoPares;
+                console.log("El Generador " + numeroGeneradores + " est\u00E1 " + estado + ", a\u00F1adiendo 62 megawatts para un total de " + numeroDeWatts);
+            }
+            else if (numeroGeneradores <= 4 && (numeroGeneradores % 2) != 0) {
+                numeroDeWatts = numeroDeWatts + 62;
+                estado = estadoImpares;
+                console.log("El Generador " + numeroGeneradores + " est\u00E1 " + estado + ", a\u00F1adiendo 62 megawatts para un total de " + numeroDeWatts);
+            }
+        }
+        for (numeroGeneradores = 5; numeroGeneradores <= numeroTotalGeneradores; numeroGeneradores++) {
+            numeroDeWatts = numeroDeWatts + 124;
+            if ((numeroGeneradores % 2) == 0) {
+                estado = estadoPares;
+                console.log("El Generador " + numeroGeneradores + " est\u00E1 " + estado + ", a\u00F1adiendo 124 megawatts para un total de " + numeroDeWatts);
+            }
+            else {
+                estado = estadoImpares;
+                console.log("El Generador " + numeroGeneradores + " est\u00E1 " + estado + ", a\u00F1adiendo 124 megawatts para un total de " + numeroDeWatts);
+            }
+        }
+    };
+    return activarTodosLosGeneradores;
+}());
+var generadores = new activarTodosLosGeneradores();
+generadores.imprimirGeneradores(19, 'Encendido', 'Apagado');
