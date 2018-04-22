@@ -13,15 +13,16 @@ Es decir, en el ejemplo anterior el formato imprimiría lo siguiente para los ge
 - "Generador #2 está apagado."
 
 */
-var numeroDeWatts = 64;
-var numeroGeneradores = 19;
+var numeroDeWatts = 0;
+var numeroGeneradores = 0;
 while (numeroGeneradores <= 19) {
+    numeroGeneradores++;
     if (numeroGeneradores <= 4) {
-        console.log("El Generador " + numeroGeneradores + " est\u00E1 prendido, a\u00F1adiendo 62 megawatts para un total de " + numeroDeWatts);
         numeroDeWatts = numeroDeWatts + 62;
+        console.log("El Generador " + numeroGeneradores + " est\u00E1 prendido, a\u00F1adiendo 62 megawatts para un total de " + numeroDeWatts);
     }
 }
 for (numeroGeneradores = 5; numeroGeneradores <= 19; numeroGeneradores++) {
-    console.log("El Generador " + numeroGeneradores + " est\u00E1 prendido, a\u00F1adiendo 124 megawatts para un total de " + numeroDeWatts);
     numeroDeWatts = numeroDeWatts + 124;
+    console.log("El Generador " + numeroGeneradores + " est\u00E1 prendido, a\u00F1adiendo 124 megawatts para un total de " + numeroDeWatts);
 }

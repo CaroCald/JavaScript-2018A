@@ -14,18 +14,20 @@ Es decir, en el ejemplo anterior el formato imprimiría lo siguiente para los ge
 
 */
 
-let numeroDeWatts=64;
-let numeroGeneradores=19;
+let numeroDeWatts = 0;
+let numeroGeneradores = 0;
 while (numeroGeneradores <= 19) {
-    if(numeroGeneradores<=4){
+    numeroGeneradores++;
+    if (numeroGeneradores <= 4) {
+        numeroDeWatts = numeroDeWatts + 62;
         console.log(`El Generador ${numeroGeneradores} está prendido, añadiendo 62 megawatts para un total de ${numeroDeWatts}`);
-        numeroDeWatts= numeroDeWatts + 62;
     }
-    }
+}
 
-for(numeroGeneradores=5; numeroGeneradores<=19; numeroGeneradores++){
-        console.log(`El Generador ${numeroGeneradores} está prendido, añadiendo 124 megawatts para un total de ${numeroDeWatts}`);
-    numeroDeWatts=numeroDeWatts+124;
+for (numeroGeneradores = 5; numeroGeneradores <= 19; numeroGeneradores++) {
+    numeroDeWatts = numeroDeWatts + 124;
+    console.log(`El Generador ${numeroGeneradores} está prendido, añadiendo 124 megawatts para un total de ${numeroDeWatts}`);
+
 }
 
 
