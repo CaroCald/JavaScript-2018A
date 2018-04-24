@@ -70,6 +70,6 @@ var usuariosConCincoAniosMenos = arregloUsuarios.map(function (usuario) {
     usuario.edad = usuario.edad - 5;
     usuario.edad = calcularDeudaUsuario(usuario.edad);
     return usuario;
-});
+}).filter(function (usuario) { return usuario.deuda > 100; });
 console.log('usuarios con deudas', usuariosConCincoAniosMenos);
 // filter

@@ -93,9 +93,7 @@ let usuariosConCincoAniosMenos = arregloUsuarios.map(
         usuario.edad = usuario.edad - 5;
         usuario.edad=calcularDeudaUsuario(usuario.edad);
         return usuario
-    }
-    
-);
-console.log('usuarios con deudas', usuariosConCincoAniosMenos);
+    }).filter( (usuario:UsuarioArreglo)=> {return usuario.deuda>100;});
 
+console.log('usuarios con deudas', usuariosConCincoAniosMenos);
 // filter
