@@ -1,5 +1,6 @@
 var arregloNumeros = [1, 2, 3, 4, 5];
-var arregloUusaios = [
+var arregloUsuarios = [
+    //let : Array<UsuarioArreglo <=[
     {
         nombre: 'Carolina',
         edad: 28
@@ -52,3 +53,15 @@ var resultadoDeLaSuma = arregloNumeros.reduce(function (totalAcumulado, valorArr
 );
 console.log('resultado', resultadoDeLaSuma);
 var resultadoDeLaSumaDos = arregloNumeros.reduce(function (totalAcumulado, valorArreglo) { return totalAcumulado - valorArreglo; }, 20);
+//TIPAR ARREGLOS DE OBJETOS
+var resultadoDeLasEdaes = arregloUsuarios.reduce(function (totalAcumulado, usuarioArreglo) {
+    return totalAcumulado + usuarioArreglo.edad;
+}, 0 //valor inicial
+);
+console.log('resultado de las edades ', resultadoDeLasEdaes);
+//mutar devuelve un arreglo transformado
+var usuariosConCincoAniosMenos = arregloUsuarios.map(function (usuario) {
+    usuario.edad = usuario.edad - 5;
+    return usuario;
+});
+console.log('usuarios con cinco años menos', usuariosConCincoAniosMenos);
